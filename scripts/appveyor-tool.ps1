@@ -55,20 +55,20 @@ Function Bootstrap {
   tzutil /s "GMT Standard Time"
   tzutil /g
 
-  Progress "Downloading R.vhd"
-  bash -c 'curl -s -L https://github.com/USGS-OWI/campbell-appveyor/raw/master/bin/cr1comp.zip | gunzip -c > ../R.vhd'
+  Progress "Downloading cr1comp.exe"
+  bash -c 'curl -s -L https://github.com/USGS-OWI/campbell-appveyor/raw/master/bin/cr1comp.exe.gz | gunzip -c > ./cr1comp.exe'
 
-  Progress "Getting full path for R.vhd"
-  $ImageFullPath = Get-ChildItem "..\R.vhd" | % { $_.FullName }
+  Progress "Getting full path for cr1comp.exe"
+  $ImageFullPath = Get-ChildItem "..\cr1comp.exe" | % { $_.FullName }
   $ImageFullPath
 
-  Progress "Mounting R.vhd"
-  Mount-DiskImage -ImagePath $ImageFullPath
+  #Progress "Mounting R.vhd"
+  #Mount-DiskImage -ImagePath $ImageFullPath
   # Enumerating drive letters takes about 10 seconds:
   # http://www.powershellmagazine.com/2013/03/07/pstip-finding-the-drive-letter-of-a-mounted-disk-image/
   # Hard-coding mounted drive letter here
-  $ISOPath = "E:"
-  $RPath = $ISOPath
+  #$ISOPath = "E:"
+  #$RPath = $ISOPath
 
   Progress "Downloading and installing travis-tool.sh"
   Invoke-WebRequest http://raw.github.com/lawinslow/campbell-appveyor/master/scripts/travis-tool.sh -OutFile "..\travis-tool.sh"
@@ -78,12 +78,12 @@ Function Bootstrap {
   cat .\.Rbuildignore
 
   Progress "Setting PATH"
-  $env:PATH = $ISOPath + '\Rtools\bin;' + $ISOPath + '\Rtools\MinGW\bin;' + $ISOPath + '\Rtools\gcc-4.6.3\bin;' + $RPath + '\R\bin\i386;' + $env:PATH
+  #$env:PATH = $ISOPath + '\Rtools\bin;' + $ISOPath + '\Rtools\MinGW\bin;' + $ISOPath + '\Rtools\gcc-4.6.3\bin;' + $RPath + '\R\bin\i386;' + $env:PATH
   $env:PATH.Split(";")
 
   Progress "Setting R_LIBS_USER"
-  $env:R_LIBS_USER = 'c:\RLibrary'
-  mkdir $env:R_LIBS_USER
+  #$env:R_LIBS_USER = 'c:\RLibrary'
+  #mkdir $env:R_LIBS_USER
 
   Progress "Bootstrap: Done"
 }

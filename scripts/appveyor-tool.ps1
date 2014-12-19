@@ -58,9 +58,9 @@ Function Bootstrap {
   Progress "Downloading cr1comp.exe"
   bash -c 'curl -s -L https://github.com/USGS-OWI/campbell-appveyor/raw/master/bin/cr1comp.exe.gz | gunzip -c > ./cr1comp.exe'
 
-  Progress "Getting full path for cr1comp.exe"
-  $ImageFullPath = Get-ChildItem "..\cr1comp.exe" | % { $_.FullName }
-  $ImageFullPath
+  #Progress "Getting full path for cr1comp.exe"
+  #$ImageFullPath = Get-ChildItem ".\cr1comp.exe" | % { $_.FullName }
+  #$ImageFullPath
 
   #Progress "Mounting R.vhd"
   #Mount-DiskImage -ImagePath $ImageFullPath

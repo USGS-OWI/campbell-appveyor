@@ -57,6 +57,11 @@ DumpLogs() {
     DumpLogsByExtension "fail"
 }
 
+BuildStep() {
+    ls
+}
+
+
 RunTests() {
     echo "Building with: cr1comp.exe ${R_BUILD_ARGS}"
     cr1comp.exe test.CR1
@@ -124,8 +129,8 @@ case $COMMAND in
         ;;
     ##
     ## Install an R dependency as a binary (via c2d4u PPA)
-    "install_r_binary"|"r_binary_install")
-        RBinaryInstall "$@"
+    "build_step")
+        BuildStep
         ;;
     ##
     ## Install a package from github sources (needs devtools)

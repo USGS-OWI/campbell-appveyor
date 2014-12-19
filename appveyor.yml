@@ -11,6 +11,9 @@ install:
         Import-Module '.\scripts\appveyor-tool.ps1'
         Bootstrap
 
+build_script:
+  - travis-tool.sh build_step
+
 test_script:
   - travis-tool.sh run_tests
 

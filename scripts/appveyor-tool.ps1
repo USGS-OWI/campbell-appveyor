@@ -56,7 +56,7 @@ Function Bootstrap {
   tzutil /g
 
   Progress "Downloading R.vhd"
-  bash -c 'curl -s -L https://rportable.blob.core.windows.net/r-portable/master/R.vhd.gz | gunzip -c > ../R.vhd'
+  bash -c 'curl -s -L https://github.com/USGS-OWI/campbell-appveyor/raw/master/bin/cr1comp.zip | gunzip -c > ../R.vhd'
 
   Progress "Getting full path for R.vhd"
   $ImageFullPath = Get-ChildItem "..\R.vhd" | % { $_.FullName }
@@ -71,7 +71,7 @@ Function Bootstrap {
   $RPath = $ISOPath
 
   Progress "Downloading and installing travis-tool.sh"
-  Invoke-WebRequest http://raw.github.com/krlmlr/r-travis/master/scripts/travis-tool.sh -OutFile "..\travis-tool.sh"
+  Invoke-WebRequest http://raw.github.com/lawinslow/campbell-appveyor/master/scripts/travis-tool.sh -OutFile "..\travis-tool.sh"
   echo '@bash.exe ../travis-tool.sh %*' | Out-File -Encoding ASCII .\travis-tool.sh.cmd
   cat .\travis-tool.sh.cmd
   bash -c "echo '^travis-tool\.sh\.cmd$' >> .Rbuildignore"

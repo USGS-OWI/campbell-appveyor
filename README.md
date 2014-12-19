@@ -1,10 +1,10 @@
-R+AppVeyor
+Campbell+AppVeyor
 ==========
 
-[![Build status](https://ci.appveyor.com/api/projects/status/github/krlmlr/r-appveyor?branch=master)](https://ci.appveyor.com/project/krlmlr/r-appveyor/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/github/USGS-OWI/campbell-appveyor?branch=master)](https://ci.appveyor.com/project/USGS-OWI/campbell-appveyor/branch/master)
 
-This is a solution for continuous integration for R projects on Windows, using [AppVeyor](http://appveyor.com) -- a CI testing service similar to [Travis-CI](http://travis-ci.org).
-Under the hood, [r-travis](https://github.com/craigcitro/r-travis) is used to perform the testing; this works even on Windows thanks to [MinGW and MSYS](http://www.mingw.org/).
+This is a solution for continuous integration for Campbell Datalogger programs on Windows, using [AppVeyor](http://appveyor.com) -- a CI testing service similar to [Travis-CI](http://travis-ci.org).
+Under the hood, campbell-travisis used to perform the testing.
 
 
 Usage
@@ -23,12 +23,6 @@ Usage
 7. Push to your repo to start building.
 8. (Optional) Add a badge as described in the "Badges" section of [your project's](https://ci.appveyor.com/projects) "SETTINGS" to your `README.md`.
 9. Enjoy!
-
-
-Artifacts
----------
-
-In contrast to Travis-CI, AppVeyor offers facilities for hosting artifacts.  This can be configured by adding a section to the `appveyor.yml`.  The sample file is configured to deploy logs, and source and **binary** versions of the built package.  Check the "ARTIFACTS" section for [your project at AppVeyor](https://ci.appveyor.com/projects).
 
 
 Acknowledgements

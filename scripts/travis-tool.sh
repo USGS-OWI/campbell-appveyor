@@ -64,7 +64,7 @@ BuildStep() {
 
 RunTests() {
     echo "Building with: cr1comp.exe ${R_BUILD_ARGS}"
-    cr1comp.exe test.CR1
+    ./cr1comp.exe test.CR1
     
     # We want to grab the version we just built.
     #FILE=$(ls -1t *.tar.gz | head -n 1)

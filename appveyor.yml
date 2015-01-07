@@ -15,7 +15,7 @@ build_script:
   - travis-tool.sh build_step
 
 test_script:
-  - travis-tool.sh run_tests
+  - travis-tool.sh test_program test.CR1
 
 on_failure:
   - travis-tool.sh dump_logs

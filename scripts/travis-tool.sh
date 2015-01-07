@@ -78,6 +78,18 @@ RunTests() {
     #fi
 }
 
+TestProgram() {
+    if [[ -z "$1" ]]; then
+        echo "dump_logs_by_extension requires exactly one argument, got: $@"
+        exit 1
+    fi
+    program=$1
+	
+    echo "Building with: cr1comp.exe ${program}"
+    ./cr1comp.exe "$program"
+    
+}
+
 Retry() {
     if "$@"; then
         return 0
@@ -151,6 +163,11 @@ case $COMMAND in
     ## Run the actual tests, ie R CMD check
     "run_tests")
         RunTests
+        ;;
+    ##
+    ## Run the actual tests, ie R CMD check
+    "test_program")
+        TestProgram "$@"
         ;;
     ##
     ## Dump information about installed packages
